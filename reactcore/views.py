@@ -63,3 +63,5 @@ class DeleteCatelog(generics.DestroyAPIView):
     queryset = Catelog.objects.all()
     serializer_class = CatelogSerializer
     permission_classes = [AllowAny]
+
+

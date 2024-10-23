@@ -29,3 +29,10 @@ class Catelog(models.Model):
     def __str__(self):
         return self.catelog_name
     
+class Admin(models.Model):
+    adminID = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.adminID
+    
