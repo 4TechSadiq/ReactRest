@@ -20,3 +20,12 @@ class Students(models.Model):
     def __str__(self):
         return self.student
     
+class Catelog(models.Model):
+    catelog_name = models.CharField(max_length=500)
+    catelog_desc = models.CharField(max_length=500)
+    catelog_books = models.CharField(max_length=500)
+    catelog_image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.catelog_name
+    
