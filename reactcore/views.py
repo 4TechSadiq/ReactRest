@@ -5,6 +5,8 @@ from .serializers import BooksSerializer,StudentsSerializer
 from rest_framework.permissions import AllowAny
 # Create your views here.
 
+
+
 class CreateBook(generics.ListCreateAPIView):
     queryset = Books.objects.all()
     serializer_class = BooksSerializer
@@ -24,9 +26,20 @@ class DeleteBook(generics.DestroyAPIView):
     permission_classes = [AllowAny]
     
 
-
-
-
 class CreateStudent(generics.ListCreateAPIView):
     queryset = Students.objects.all()
     serializer_class = StudentsSerializer
+
+class ListStudent(generics.ListAPIView):
+    queryset = Students.objects.all()
+    serializer_class = StudentsSerializer
+
+class UpdateStudent(generics.UpdateAPIView):
+    queryset = Students.objects.all()
+    serializer_class = StudentsSerializer
+    permission_classes = [AllowAny]
+
+class DeleteStudent(generics.DestroyAPIView):
+    queryset = Students.objects.all()
+    serializer_class = StudentsSerializer
+    permission_classes = [AllowAny]
