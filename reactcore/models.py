@@ -1,4 +1,5 @@
 from django.db import models
+import random
 
 # Create your models here.
 class Books(models.Model):
@@ -18,9 +19,8 @@ class Students(models.Model):
     user_ID = models.CharField(max_length=100)
     institution = models.CharField(max_length=100)
 
-
     def __str__(self):
-        return self.student_name
+        return self.user_ID
     
 class Catelog(models.Model):
     catelog_name = models.CharField(max_length=500)
@@ -41,8 +41,6 @@ class Admin(models.Model):
 class Provide(models.Model):
     user = models.OneToOneField(Students, on_delete=models.CASCADE)
     book = models.ManyToManyField(Books)
-    author = models.CharField(max_length=100)
-    isbnumber = models.IntegerField()
 
     def __str__(self):
         return self.user
