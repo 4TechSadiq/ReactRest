@@ -4,6 +4,8 @@ from django.db import models
 class Books(models.Model):
     book_name = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
+    isbnumber = models.IntegerField()
+    image = models.CharField(max_length=500)
     price = models.FloatField()
     publication = models.CharField(max_length=100)
     description = models.TextField()
@@ -24,7 +26,7 @@ class Catelog(models.Model):
     catelog_name = models.CharField(max_length=500)
     catelog_desc = models.CharField(max_length=500)
     catelog_books = models.ManyToManyField(Books)
-    catelog_image = models.ImageField(upload_to='images/')
+    catelog_image = models.CharField(max_length=500)
 
     def __str__(self):
         return self.catelog_name

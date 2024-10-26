@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics
 from .models import Books,Students, Catelog
-from .serializers import BooksSerializer,StudentsSerializer, CatelogSerializer
+from .serializers import BooksSerializer,StudentsSerializer, CatelogSerializer, AdminSerializer
 from rest_framework.permissions import AllowAny
+from .models import Admin
 # Create your views here.
 
 
@@ -65,3 +66,6 @@ class DeleteCatelog(generics.DestroyAPIView):
     permission_classes = [AllowAny]
 
 
+class ListAdmin(generics.ListAPIView):
+    queryset = Admin.objects.all()
+    serializer_class = AdminSerializer
