@@ -20,7 +20,7 @@ class Students(models.Model):
 
 
     def __str__(self):
-        return self.student
+        return self.student_name
     
 class Catelog(models.Model):
     catelog_name = models.CharField(max_length=500)
@@ -37,4 +37,13 @@ class Admin(models.Model):
 
     def __str__(self):
         return self.adminID
+    
+class Provide(models.Model):
+    user = models.OneToOneField(Students, on_delete=models.CASCADE)
+    book = models.ManyToManyField(Books)
+    author = models.CharField(max_length=100)
+    isbnumber = models.IntegerField()
+
+    def __str__(self):
+        return self.user
     
