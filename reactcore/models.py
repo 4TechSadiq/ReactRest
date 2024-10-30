@@ -1,7 +1,5 @@
 from django.db import models
-import random
 
-# Create your models here.
 class Books(models.Model):
     book_name = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
@@ -13,7 +11,7 @@ class Books(models.Model):
 
     def __str__(self):
         return self.book_name
-    
+
 class Students(models.Model):
     student_name = models.CharField(max_length=100)
     user_ID = models.CharField(max_length=100)
@@ -21,29 +19,29 @@ class Students(models.Model):
 
     def __str__(self):
         return self.user_ID
-    
-class Catelog(models.Model):
-    catelog_name = models.CharField(max_length=500)
-    catelog_desc = models.CharField(max_length=500)
-    catelog_books = models.ManyToManyField(Books)
-    catelog_image = models.CharField(max_length=500)
+
+class Catalog(models.Model):
+    catalog_name = models.CharField(max_length=500)
+    catalog_desc = models.CharField(max_length=500)
+    catalog_books = models.ManyToManyField(Books)
+    catalog_image = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.catelog_name
-    
+        return self.catalog_name
+
 class Admin(models.Model):
     adminID = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
 
     def __str__(self):
         return self.adminID
-    
+
+# This model captures the relationship between a student and the books they have borrowed
 class Provide(models.Model):
-    user = models.OneToOneField(Students, on_delete=models.CASCADE)
-    book = models.ManyToManyField(Books)
+    student = models.ForeignKey(Students, on_delete=models.CASCADE)
+    book = models.ForeignKey(Books, on_delete=models.CASCADE)
     approved_date = models.DateField(auto_now_add=True)
     return_date = models.DateField()
 
     def __str__(self):
-        return self.user.first()
-    
+        return f"{self.student.user_ID} - {self.book.book_name}"
