@@ -42,7 +42,7 @@ class Provide(models.Model):
     user = models.OneToOneField(Students, on_delete=models.CASCADE)
     book = models.ManyToManyField(Books)
     approved_date = models.DateField(auto_now_add=True)
-    return_date = models.DateField()
+    approved_date = models.DateField()
 
     def __str__(self):
         return self.user.first()
