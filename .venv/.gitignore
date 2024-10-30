@@ -1,0 +1,10 @@
+*.pyc
+vaidya/__pycache__/__init__.cpython-312.pyc
+vaidya/__pycache__/settings.cpython-312.pyc
+vaidya/__pycache__/urls.cpython-312.pyc
+vaidyacore/__pycache__/__init__.cpython-312.pyc
+vaidyacore/__pycache__/admin.cpython-312.pyc
+vaidyacore/__pycache__/apps.cpython-312.pyc
+vaidyacore/__pycache__/models.cpython-312.pyc
+.venv/
+venv/
