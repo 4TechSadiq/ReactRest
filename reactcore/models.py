@@ -39,7 +39,7 @@ class Admin(models.Model):
 # This model captures the relationship between a student and the books they have borrowed
 class Provide(models.Model):
     student = models.ForeignKey(Students, on_delete=models.CASCADE)
-    book = models.ForeignKey(Books, on_delete=models.CASCADE)
+    book = models.CharField(max_length=250)
     approved_date = models.DateField(auto_now_add=True)
     return_date = models.DateField()
 

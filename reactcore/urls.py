@@ -20,7 +20,7 @@ urlpatterns = [
     path("provide-book/", views.ProvideBook.as_view(), name="provide-book"),
     path("list-provide/", views.ListProvide.as_view(), name="list-provide"),
     path("delete-provide/<int:pk>/", views.DeleteProvide.as_view(), name="delete-provide"),
-    path("update-provide/<int:pk>/", views.UpdateProvide.as_view(), name="update-provide"),
+    path("update-provide/<int:pk>/", views.ProvideUpdateView.as_view(), name="update-provide"),
 
     path("admin-login", views.ListAdmin.as_view(), name="admin-login"),
 
