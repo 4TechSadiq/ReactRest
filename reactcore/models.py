@@ -16,6 +16,7 @@ class Students(models.Model):
     student_name = models.CharField(max_length=100)
     user_ID = models.CharField(max_length=100, unique=True)
     institution = models.CharField(max_length=100)
+    profile = models.CharField(max_length=500)
 
     def __str__(self):
         return self.user_ID
