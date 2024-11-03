@@ -139,3 +139,16 @@ class AddBook(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class CreateUser(APIView):
+    def post(self, request):
+        post_request = request.data
+        print(post_request)
+        url = get_url(post_request['profile'])
+        print(url)
+        post_request['profile'] = url
+        serializer = StudentsSerializer(data=post_request)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
