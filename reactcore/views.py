@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Provide
 from .serializers import ProvideSerializer
+from .ImageUrl import get_url
 
 # Create your views here.
 
@@ -123,4 +124,18 @@ class ProvideUpdateView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class AddBook(APIView):
+    def post(self, request):
+        
+        post_request = request.data
+        print(post_request)
+        url = get_url(post_request['image'])
+        print(url)
+        post_request['image'] = url
+        serializer = BooksSerializer(data=post_request)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
