@@ -32,6 +32,11 @@ class DeleteBook(generics.DestroyAPIView):
     queryset = Books.objects.all()
     serializer_class = BooksSerializer
     permission_classes = [AllowAny]
+
+
+class DetailBookView(generics.RetrieveAPIView):
+    queryset = Books.objects.all()
+    serializer_class = BooksSerializer
     
 
 class CreateStudent(generics.ListCreateAPIView):

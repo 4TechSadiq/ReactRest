@@ -5,7 +5,8 @@ urlpatterns = [
     path("create-book/", views.AddBook.as_view(), name="create-book"),
     path("update-book/<int:pk>", views.UpdateBook.as_view(), name="update-book"),
     path("list-book/", views.ListBooks.as_view(), name="list-books"),
-    path("delete-book/", views.DeleteBook.as_view(), name="delete-book"),
+    path("delete-book/<int:pk>/", views.DeleteBook.as_view(), name="delete-book"),
+    path("detail-book/<int:pk>/", views.DetailBookView.as_view(), name="detail-book"),
 
     path("create-student/", views.CreateUser.as_view(), name="create-student"),
     path("update-student/<int:pk>/", views.UpdateStudent.as_view(), name="update-student"),
