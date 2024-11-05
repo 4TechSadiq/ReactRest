@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Books,Students, Catalog, Provide
+from .models import Books,Students, Catalog, Provide, Admin
 from .serializers import BooksSerializer,StudentsSerializer, CatelogSerializer, AdminSerializer, ProvideSerializer
 from rest_framework.permissions import AllowAny
 from .models import Admin
@@ -57,6 +57,10 @@ class DeleteStudent(generics.DestroyAPIView):
     serializer_class = StudentsSerializer
     permission_classes = [AllowAny]
 
+
+class CreateAdmin(generics.ListCreateAPIView):
+    queryset = Admin.objects.all()
+    serializer_class = AdminSerializer
 
 
 class NewCatelog(generics.ListCreateAPIView):

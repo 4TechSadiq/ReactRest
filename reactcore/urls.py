@@ -24,4 +24,5 @@ urlpatterns = [
     path("update-provide/<int:pk>/", views.ProvideUpdateView.as_view(), name="update-provide"),
 
     path("admin-login", views.ListAdmin.as_view(), name="admin-login"),
+    path("create-admin/", views.CreateAdmin.as_view(), name="create-admin"),
 ]
